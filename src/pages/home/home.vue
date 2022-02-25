@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import {onMounted} from "vue";
+import {getNodesByName} from "../../api";
 
-defineProps<{ msg: string }>()
-
-const count = ref(0)
+const props = defineProps({})
+onMounted(async () => {
+  const res = await getNodesByName()
+  console.log('res', res)
+})
 </script>
 
 <template>
